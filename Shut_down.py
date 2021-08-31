@@ -14,7 +14,22 @@ Backround.place(x=-5, y=0)
 a = Label(window, text="Đang tắt",  font=("Arial Bold", 20), bg="#000000", fg="#ffffff")
 a.place(x=730, y=550)
 
-b = Label(window, text="Tắt sau 5 giây",  font=("Arial Bold", 20), bg="#000000", fg="#ffffff")
+d = 5
+
+def c():
+	global d
+
+	if d == 0:
+		window.close()
+
+	b.cofig(text=str(d))
+
+	d -= 1
+
+	b.
+
+
+b = Label(window,  font=("Arial Bold", 20), bg="#000000", fg="#ffffff")
 b.place(x=690, y=410)
 
 window.mainloop()
