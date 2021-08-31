@@ -3,6 +3,10 @@ from PIL import Image, ImageTk
 
 window = Tk()
 window.title("Hohuydrive")
-window.geometry(geometry)
+window.geometry("1600x900")
 window.resizable(0, 0)
-window.iconbitmap(logo)
+window.iconbitmap("Image\logo.ico")
+
+Image = ImageTk.PhotoImage(Image.open(Backround))
+
+window.mainloop()
