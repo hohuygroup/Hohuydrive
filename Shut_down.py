@@ -20,16 +20,18 @@ def c():
 	global d
 
 	if d == 0:
-		window.close()
+		quit()
 
-	b.cofig(text=str(d))
+	b.config(text="Tắt máy sau " + str(d))
 
 	d -= 1
 
-	b.
+	b.after(1000, c)
 
 
 b = Label(window,  font=("Arial Bold", 20), bg="#000000", fg="#ffffff")
-b.place(x=690, y=410)
+b.place(x=690, y=430)
+
+c()
 
 window.mainloop()
