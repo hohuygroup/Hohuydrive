@@ -107,7 +107,8 @@ def logo(e):
     global Start, whiles, Shut_downs, Canvas, lbs, app, a, b
 
     def Shut_down():
-        window.quit()
+        window.destroy()
+        import Shut_down
 
     # Mở file start menu
     start_menu = openfile("Data/Start menu.pml")\
@@ -141,7 +142,7 @@ def logo(e):
         def ok(e):
             file = app[e]
 
-            if file == "Installation"
+            if file == "Installation":
                 pass
 
         # Tìm kiếm biến
