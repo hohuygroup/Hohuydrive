@@ -46,3 +46,7 @@ class search:
 
 	def return_search(self):
 		return self.run
+def name(name_file):
+	name_1 = str(name_file).split("/")
+	name = name_1[-1].split(".")
+	return name[0]
