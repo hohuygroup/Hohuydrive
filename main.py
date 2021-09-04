@@ -4,8 +4,9 @@ from PIL import Image, ImageTk
 from sys import path
 path.append("Module/")
 from ftplib import FTP
-from PML import openfile, search
-import time
+from PML import openfile, search, name
+from tkinter import messagebox
+from tkinter import filedialog
 
 
 # Kết nối tới server
@@ -111,7 +112,7 @@ def logo(e):
         import Shut_down
 
     # Mở file start menu
-    start_menu = openfile("Data/Start menu.pml")\
+    start_menu = openfile("Data/Start menu.pml")
     # Đọc file
     reads = start_menu.read()
 
@@ -143,7 +144,11 @@ def logo(e):
             file = app[e]
 
             if file == "Installation":
-                pass
+                file = filedialog.askopenfilename(filetypes = (("Application files","*.hh"),("all files","*.*")))
+                name_file = name(file)
+                res = messagebox.askquestion('Installation', "Bạn có muốn cài ứng dụng " +  name_file + " ?")
+
+                
 
         # Tìm kiếm biến
         for x in search(reads, "app_1_s", "app_2_s", "app_3_s").return_search():
@@ -152,7 +157,7 @@ def logo(e):
                 xy = 320
             elif x == "app_3_s":
                 xy = 305
-
+ 
             bts = Label(window, image=Image_Button, bg="#C3C3C3")
             bts.place(x=290 , y=y)
 
