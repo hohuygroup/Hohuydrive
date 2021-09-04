@@ -38,12 +38,14 @@ class run:
 
 		if text["hh-v"] == "2.0":
 			a = text["main"].split(".")
-			file = open("run_file.py", "r+")
-			file.write("from tkinter import *\nfrom sys import path\npath.append('Path/Main')\nfrom " + a[0] + " import main\n\n\nclass a:\n    def __init__(self, window):        main(window)")
+			file = open("run_file.py", "w")
+			file.write("from tkinter import *\nfrom sys import path\npath.append('"+ path + "Main')\nfrom " + a[0] + " import main\n\n\nclass a:\n    def __init__(self, window):")
+			file.write("main(window)")
 			file.close()
 
-	def run_file(self):
+	def run_file(self, window=None):
 		import run_file
+		run_file.main(window)
 
 OpenHH("Path/Open.hh", "Path/").installation()
 run("Path/").run_file()
