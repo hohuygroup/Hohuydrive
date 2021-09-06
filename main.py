@@ -158,7 +158,7 @@ def logo(e):
                         OpenHH(file, "Data/App/" + name_file + "/").installation()
                         application.write(name_file, "Data/App/" + name_file + "/")
                         if messagebox.askquestion('Installation', 'Đã hoàn thành cài ứng dụng. Bạn có muốn chạy ứng dụng không?') == "yes":
-                            run("Data/App/" + name_file + "/", "Data/").run_file()
+                            run("Data/App/" + name_file + "/", "Data/")
 
         # Tìm kiếm biến
         for x in search(reads, "app_1_s", "app_2_s", "app_3_s").return_search():
