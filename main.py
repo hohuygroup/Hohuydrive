@@ -8,6 +8,7 @@ from PML import openfile, search, name
 from openhh import OpenHH, run
 from tkinter import messagebox
 from tkinter import filedialog
+import os 
 
 
 # Kết nối tới server
@@ -151,7 +152,10 @@ def logo(e):
                     name_file = name(file)
 
                     if messagebox.askquestion('Installation', "Bạn có muốn cài ứng dụng " +  name_file + " ?") == "yes":
-                        OpenHH(file, "Data/App/").installation()
+                        os.mkdir('Data/App/' + name_file)
+                        OpenHH(file, "Data/App/" + name_file + "/").installation()
+                        if messagebox.askquestion('Installation', 'Đã hoàn thành cài ứng dụng. Bạn có muốn chạy ứng dụng không?') == "yes":
+                            run()
 
         # Tìm kiếm biến
         for x in search(reads, "app_1_s", "app_2_s", "app_3_s").return_search():
@@ -177,7 +181,7 @@ def logo(e):
             app.append(reads[x])
 
     else:
-        Start.place(x=-1000, y=260)
+        Start.place(x=-1000, y=260) 
         Canvas.place(x=-1000, y=260)
         Shut_downs.place(x=-1000, y=260)
         lbs.place(x=-1000, y=260)
