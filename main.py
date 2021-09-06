@@ -5,6 +5,7 @@ from sys import path
 path.append("Module/")
 from ftplib import FTP
 from PML import openfile, search, name
+from openhh import OpenHH, run
 from tkinter import messagebox
 from tkinter import filedialog
 
@@ -20,7 +21,7 @@ data = openfile("Data/data.pml")
 # Xử lí file Data
 data_1 = data.read()
 # 1 Backround
-Backround = str(data_1["backround"])
+Backround = str(data_1["background"])
 # 2 Logo
 logo = str(data_1["logo"])
 # 3 Display resolution
@@ -145,10 +146,12 @@ def logo(e):
 
             if file == "Installation":
                 file = filedialog.askopenfilename(filetypes = (("Application files","*.hh"),("all files","*.*")))
-                name_file = name(file)
-                res = messagebox.askquestion('Installation', "Bạn có muốn cài ứng dụng " +  name_file + " ?")
 
-                
+                if file != "":
+                    name_file = name(file)
+
+                    if messagebox.askquestion('Installation', "Bạn có muốn cài ứng dụng " +  name_file + " ?") == "yes":
+                        OpenHH(file, "Data/App/").installation()
 
         # Tìm kiếm biến
         for x in search(reads, "app_1_s", "app_2_s", "app_3_s").return_search():
