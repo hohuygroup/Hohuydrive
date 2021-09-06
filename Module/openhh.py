@@ -40,13 +40,13 @@ class run:
 
 		if text["hh-v"] == "2.0":
 			a = text["main"].split(".")
-			file = open(intermediate_file, "w")
+			file = open(intermediate_file + "run file.py", "w")
 			file.write("from tkinter import *\nfrom sys import path\npath.append('"+ path + "Main')\nfrom " + a[0] + " import main\n\n\nclass a:\n    def __init__(self, window):")
 			file.write("main(window)")
 			file.close()
 
 	def run_file(self, window=None):
-		path.append(self.intermediate_file)
+		path.append(self.filess)
 		import run_file
 		run_file.main(window)
 
