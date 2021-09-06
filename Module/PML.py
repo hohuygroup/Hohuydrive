@@ -27,7 +27,7 @@ class openfile:
 		return self.pml
 
 	def write(self, value, text):
-		text_file = str(self.file.read()) + "\n"
+		text_file = str(self.file.read())
 		file = open(self.name_file, "w")
 		file.write(text_file)
 		txt = value + "=" + text + "\n"
