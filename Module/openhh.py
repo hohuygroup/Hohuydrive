@@ -2,7 +2,7 @@ import zipfile
 import shutil
 import os
 from PML import openfile
-from sys import path
+from sys import path as p
 
 
 class OpenHH:
@@ -41,14 +41,14 @@ class run:
 		if text["hh-v"] == "2.0":
 			a = text["main"].split(".")
 			file = open(intermediate_file + "run file.py", "w")
-			file.write("from tkinter import *\nfrom sys import path\npath.append('"+ path + "Main')\nfrom " + a[0] + " import main\n\n\nclass a:\n    def __init__(self, window):")
+			file.write("from sys import path\npath.append('"+ path + "Main')\nfrom " + a[0] + " import main\n\n\nclass a:\n    def __init__(self, window):")
 			file.write("main(window)")
 			file.close()
 
 	def run_file(self, window=None):
-		path.append(self.filess)
-		import run_file
-		run_file.main(window)
+		p.append(self.intermediate_file)
+		from run_file import main
+		main(window)
 
 # OpenHH("Path/Open.hh", "Path/").installation()
 # run("Path/").run_file()
