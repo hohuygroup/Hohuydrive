@@ -11,8 +11,17 @@ class openfile:
 		
 	def read(self):
 		self.pml = {}
+		
+		ah = self.file.read().split("\n")
 
-		for x in self.file.read().split("\n"):
+		for y in ah:
+			try:
+				if y[0] == "#":
+					ah.remove(y)
+			except:
+				pass
+
+		for x in ah:
 			a = x.split("=")
 			self.pml[a[0]] = a[-1]
 		return self.pml
