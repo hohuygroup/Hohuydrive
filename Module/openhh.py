@@ -2,7 +2,7 @@ import zipfile
 import shutil
 import os
 from PML import openfile
-
+from sys import path
 
 
 class OpenHH:
@@ -32,20 +32,23 @@ class OpenHH:
 
 
 class run:
-	def __init__(self, path):
+	def __init__(self, path, intermediate_file):
+		self.intermediate_file = intermediate_file
+
 		files = openfile(path + "/run.pyl")
 		text = files.read()
 
 		if text["hh-v"] == "2.0":
 			a = text["main"].split(".")
-			file = open("run_file.py", "w")
+			file = open(intermediate_file, "w")
 			file.write("from tkinter import *\nfrom sys import path\npath.append('"+ path + "Main')\nfrom " + a[0] + " import main\n\n\nclass a:\n    def __init__(self, window):")
 			file.write("main(window)")
 			file.close()
 
 	def run_file(self, window=None):
+		path.append(self.intermediate_file)
 		import run_file
 		run_file.main(window)
 
-OpenHH("Path/Open.hh", "Path/").installation()
-run("Path/").run_file()
+# OpenHH("Path/Open.hh", "Path/").installation()
+# run("Path/").run_file()
