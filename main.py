@@ -17,6 +17,8 @@ import os
 
 # Mở file Data
 data = openfile("Data/data.pml")
+# Mở file App
+application = openfile("Data/app.pml")
 
 
 # Xử lí file Data
@@ -154,6 +156,7 @@ def logo(e):
                     if messagebox.askquestion('Installation', "Bạn có muốn cài ứng dụng " +  name_file + " ?") == "yes":
                         os.mkdir('Data/App/' + name_file)
                         OpenHH(file, "Data/App/" + name_file + "/").installation()
+                        application.write(name_file, "Data/App/" + name_file + "/")
                         if messagebox.askquestion('Installation', 'Đã hoàn thành cài ứng dụng. Bạn có muốn chạy ứng dụng không?') == "yes":
                             run()
 
