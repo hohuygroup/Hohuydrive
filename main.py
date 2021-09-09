@@ -146,6 +146,8 @@ def logo(e):
 
         def ok(e):
             file = app[e]
+            start = openfile("Data/data.pml")
+
 
             if file == "Installation":
                 file = filedialog.askopenfilename(filetypes = (("Application files","*.hh"),("all files","*.*")))
@@ -157,6 +159,9 @@ def logo(e):
                         os.mkdir('Data/App/' + name_file)
                         OpenHH(file, "Data/App/" + name_file + "/").installation()
                         application.write(name_file, "Data/App/" + name_file + "/")
+
+                        start.write(name_file, "Data/App/" + name_file + "/")
+                        
                         if messagebox.askquestion('Installation', 'Đã hoàn thành cài ứng dụng. Bạn có muốn chạy ứng dụng không?') == "yes":
                             run("Data/App/" + name_file + "/", "Data/")
 
