@@ -3,4 +3,4 @@ background=Image\Backround\backround.png
 # Path File logo
 logo=Image\logo.ico
 # Window size
-display_resolution=1600x900Open=Data/App/Open/
+display_resolution=1600x900
