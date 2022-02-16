@@ -68,37 +68,6 @@ Image_Logo_1 = ImageTk.PhotoImage(image_10)
 Image_StartMenu = ImageTk.PhotoImage(image_9)
 Image_Button = ImageTk.PhotoImage(image_11)
 
-# lists = ftp.retrlines('LIST')
-# for x in lists:
-# 	if x[24] == "<":
-# 		tach = x.split("       <DIR>          ")
-# 	else:
-# 		tach = x.split("                    ")
-# 	del tach[0]
-
-
-# 	a = 0
-# 	name = tach[0]
-# 	for y in name:
-# 		try:
-# 			ftp.cwd(name)
-# 		except:
-# 			try:
-# 				int(y)
-# 			except:
-# 				name = name[a:]
-# 				break
-# 			if y == " ":
-# 				name = name[a:]
-# 				break
-# 			a += 1
-# 			if name[0] == " ":
-# 				name = name[1:]
-# 		else:	
-# 			name = x
-# 		ftp.cwd("..")
-# print(ftp.pwd())
-
 # Định nghĩa hàm
 whiles = 0
 Start = ""
